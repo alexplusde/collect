@@ -5,5 +5,5 @@ supportpage: https://github.com/alexplusde/collect
 pages:
     collect/video:
         title: translate:collect_title_video
-        icon: rex-icon fa-rss
+        icon: rex-icon fa-play
         perm: collect[]

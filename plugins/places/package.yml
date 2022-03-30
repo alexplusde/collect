@@ -5,10 +5,10 @@ supportpage: https://github.com/alexplusde/collect
 pages:
     collect/places:
         title: translate:collect_title_places
-        icon: rex-icon fa-rss
+        icon: rex-icon fa-map-marker
         perm: collect[]
 
     collect/places_review:
         title: translate:collect_title_places_review
-        icon: rex-icon fa-rss
+        icon: rex-icon fa-star
         perm: collect[]

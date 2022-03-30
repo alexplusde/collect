@@ -1,9 +1,9 @@
 package: collect/social_media
-version: '0.0.1-dev'
-author: 'Alexander Walther' 
+version: "0.0.1-dev"
+author: "Alexander Walther"
 supportpage: https://github.com/alexplusde/collect
 pages:
     collect/social_media:
         title: translate:collect_title_social_media
-        icon: rex-icon fa-rss
+        icon: rex-icon fa-commenting
         perm: collect[]
