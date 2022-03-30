@@ -7,3 +7,8 @@ pages:
         title: translate:collect_title_places
         icon: rex-icon fa-rss
         perm: collect[]
+
+    collect/places_review:
+        title: translate:collect_title_places_review
+        icon: rex-icon fa-rss
+        perm: collect[]
