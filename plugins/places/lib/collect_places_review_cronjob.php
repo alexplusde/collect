@@ -1,6 +1,6 @@
 <?php
 
-class rex_cronjob_collect_google_places_review extends rex_cronjob
+class rex_cronjob_collect_places_review extends rex_cronjob
 {
     public function execute()
     {
