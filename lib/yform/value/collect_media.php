@@ -56,7 +56,7 @@ class rex_yform_value_collect_media extends rex_yform_value_abstract
             return '<img style="width: 40px;" src="'. rex_url::frontend().rex_media_manager::getUrl("collects_list_preview", $files[0]) .'">';
         }
 
-        return "";
+        return ""; 
 
 
         */
