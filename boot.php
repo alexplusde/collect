@@ -1,6 +1,6 @@
 <?php
 
-include "vendor/autoload.php"; 
+// include "vendor/autoload.php"; 
 
 if (rex_addon::get('media_manager')->isAvailable()) {
     rex_media_manager::addEffect(rex_effect_collect::class);
