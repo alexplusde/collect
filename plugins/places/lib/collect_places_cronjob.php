@@ -5,7 +5,6 @@ class rex_cronjob_collect_places extends rex_cronjob
     public function execute()
     {
 
-
         $errors = [];
         $added = 0;
         $updated = 0;

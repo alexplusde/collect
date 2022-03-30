@@ -1,1 +1,48 @@
-collect_title: collect-Addon
+collect_title   =   Collect
+
+// YForm Tabellenfelder Labels und Notices
+
+collect_key_label           = Schlüssel
+collect_name_label          = Name
+collect_title_label         = Titel
+collect_author_label        = Autor*in
+collect_status_label        = Status
+collect_url_label           = URL
+collect_image_label         = Bild
+collect_content_label       = Inhalt
+collect_raw_label           = Rohdaten (JSON)
+collect_uuid_label          = UUID
+collect_publishdate_label   = Original vom
+collect_createdate_label    = Abruf am
+collect_updatedate_label    = Aktualisiert am
+collect_updateuser_label    = Verändert von
+
+online  = Online
+offline = Offline
+
+collect_key_notice           = 
+collect_name_notice          = 
+collect_title_notice         = 
+collect_author_notice        = 
+collect_url_notice           = 
+collect_image_notice         = Entwickler-Tipp: Das Bild lässt sich über den Medien Manager ausgeben, siehe Hilfe
+collect_content_notice       = Inhalt
+collect_publishdate_notice   = Datum, an dem der Beitrag veröffentlicht wurde. 
+collect_createdate_notice    = Datum des ersten Abrufs
+collect_updatedate_notice    = Datum der letzten Aktualisierung
+collect_updateuser_notice    = REDAXO-Benutzer der letzten Aktualisierung, sofern verändert.
+
+# Backend-Pages 
+collect_title_docs      = Hilfe
+
+# Keys, die eigentl. in die Plugins gehören
+
+collect_title_places        = Orte
+collect_title_rss           = RSS
+collect_title_social_media  = Social Media
+collect_title_video         = Video
+
+collect_places_title        = Orte
+collect_rss_title           = RSS
+collect_social_media_title  = Social Media
+collect_video_title         = Video

@@ -13,5 +13,4 @@ if (rex_addon::get('yform')->isAvailable() && !rex::isSafeMode()) {
 
 if (rex_addon::get('cronjob')->isAvailable()) {
     rex_cronjob_manager::registerType(rex_cronjob_collect_places::class);
-    rex_cronjob_manager::registerType(rex_cronjob_collect_places_review::class);
 }
