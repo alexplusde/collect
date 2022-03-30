@@ -1,0 +1,9 @@
+package: collect/places
+version: '0.0.1-dev'
+author: 'Alexander Walther' 
+supportpage: https://github.com/alexplusde/collect
+pages:
+    collect/rss:
+        title: translate:collect_title
+        icon: rex-icon fa-rss
+        perm: collect[]
