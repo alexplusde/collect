@@ -1,20 +1,25 @@
 package: collect
-version: '0.0.1-dev'
-author: 'Alexander Walther'
-supportpage: https://github.com/alexplusde/collect 
-
+version: "0.0.1-dev"
+author: "Alexander Walther"
+supportpage: https://github.com/alexplusde/collect
 
 requires:
     php:
-        version: '>7.3,<9'
+        version: ">7.3,<9"
     redaxo: ^5.13
     packages:
         yform: "^4"
 
-
 page:
     title: translate:collect_title
     icon: rex-icon fa-rss
+
+pages:
+    collect/docs:
+        title: translate:collect_title_docs
+        subPath: README.md
+        icon: rex-icon fa-info-circle
+        itemclass: pull-right
 
 system_plugins:
     - rss
