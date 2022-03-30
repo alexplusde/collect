@@ -9,4 +9,8 @@ class collect_places_review extends \rex_yform_manager_dataset
     {
         return $this->getValue('name');
     }
+    public function getRating() :float
+    {
+        return (float) $this->getValue('rating');
+    }
 }
