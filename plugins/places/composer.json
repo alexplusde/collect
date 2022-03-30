@@ -1,0 +1,8 @@
+{
+    "require": {
+        "nicolus/picofeed": "^0.1.42",
+        "ricardoper/twitteroauth": "^2.1.6",
+        "madcoda/php-youtube-api": "^1.2",
+        "vimeo/vimeo-api": "^2.0"
+    }
+}

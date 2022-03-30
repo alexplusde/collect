@@ -1,0 +1,6 @@
+{
+    "require": {
+        "simplepie/simplepie": "^1.5.7",
+        "nicolus/picofeed": "^0.1.42"
+    }
+}

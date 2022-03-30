@@ -1,0 +1,6 @@
+{
+    "require": {
+        "madcoda/php-youtube-api": "^1.2",
+        "vimeo/vimeo-api": "^2.0"
+    }
+}
