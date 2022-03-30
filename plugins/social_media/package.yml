@@ -4,6 +4,6 @@ author: 'Alexander Walther'
 supportpage: https://github.com/alexplusde/collect
 pages:
     collect/social_media:
-        title: translate:collect_title
+        title: translate:collect_title_social_media
         icon: rex-icon fa-rss
         perm: collect[]

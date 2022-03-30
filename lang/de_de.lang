@@ -38,6 +38,7 @@ collect_title_docs      = Hilfe
 # Keys, die eigentl. in die Plugins gehören
 
 collect_title_places        = Orte
+collect_title_places_review = Rezensionen
 collect_title_rss           = RSS
 collect_title_social_media  = Social Media
 collect_title_video         = Video
