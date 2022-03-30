@@ -5,3 +5,8 @@ rex_yform_manager_dataset::setModelClass(
     'rex_collect_video',
     collect_video::class
 );
+
+if (rex_addon::get('cronjob')->isAvailable()) {
+    rex_cronjob_manager::registerType(rex_cronjob_collect_video_vimeo::class);
+    rex_cronjob_manager::registerType(rex_cronjob_collect_video_youtube::class);
+}
