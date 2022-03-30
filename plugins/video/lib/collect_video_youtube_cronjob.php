@@ -25,7 +25,7 @@ class rex_cronjob_collect_video_youtube extends rex_cronjob
         $fields[] = [
             'label' => rex_i18n::msg('collect_video_youtube_url'),
             'name' => 'url',
-            'type' => 'url',
+            'type' => 'text',
             'notice' => rex_i18n::msg('collect_video_youtube_url_notice'),
         ];
 

@@ -25,7 +25,7 @@ class rex_cronjob_collect_video_vimeo extends rex_cronjob
         $fields[] = [
             'label' => rex_i18n::msg('collect_video_vimeo_url'),
             'name' => 'url',
-            'type' => 'url',
+            'type' => 'text',
             'notice' => rex_i18n::msg('collect_video_vimeo_url_notice'),
         ];
 
