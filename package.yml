@@ -15,3 +15,6 @@ requires:
 page:
     title: translate:collect_title
     icon: rex-icon fa-rss
+
+system_plugins:
+    - rss
