@@ -20,7 +20,7 @@ class collect_places extends \rex_yform_manager_dataset
         return $this->getValue('status');
     }
     
-    public function getRaw() :array
+    public function getRawData() :array
     {
         return json_decode($this->getValue('raw'), true);
     }
