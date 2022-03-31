@@ -22,23 +22,23 @@ class rex_cronjob_collect_social_media_twitter extends rex_cronjob
                 $author = [];            
 
                 foreach($result->data as $data) {
-                $item = collect_social_media::query()->Where('uuid', rex_yform_value_uuid::guidv4($data->id))->findOne();
+                    $item = collect_social_media::query()->Where('uuid', rex_yform_value_uuid::guidv4($data->id))->findOne();
 
-                if (!$item) {
-                    $added++;
-                    $item = collect_social_media::create();
-                } else {
-                    $updated++;
+                    if (!$item) {
+                        $added++;
+                        $item = collect_social_media::create();
+                    } else {
+                        $updated++;
+                    }
+
+                    $item->setValue('name', $author->name);
+                    $item->setValue('raw', $response->getBody());
+                    $item->setValue('content', strip_tags($data->text));
+                    $item->setValue('uuid', rex_yform_value_uuid::guidv4($data->id));
+                    $item->setValue('status', $this->getParam('status'));
+                    $item->save();
+
                 }
-
-                $item->setValue('name', $author->name);
-                $item->setValue('raw', $response->getBody());
-                $item->setValue('content', strip_tags($data->text));
-                $item->setValue('uuid', rex_yform_value_uuid::guidv4($data->id));
-                $item->setValue('status', $this->getParam('status'));
-
-                }
-                    // $item->save();
             } else {
                 $errors[] = "Fehler beim Abruf. Stimmen die Zugangsdaten und Token?";
 
