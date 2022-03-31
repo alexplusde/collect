@@ -47,3 +47,56 @@ collect_places_title        = Orte
 collect_rss_title           = RSS
 collect_social_media_title  = Social Media
 collect_video_title         = Video
+
+# Cronjobs 
+
+collect_google_places = Collect: Google Places inkl. Fotos und Rezensionen
+
+collect_google_places_place_id        = Place ID
+collect_google_places_place_id_notice = ID des Google Maps-Standorts, siehe <a href="https://developers.google.com/maps/documentation/places/web-service/place-id">Google Places</a>
+
+collect_google_places_api_key         = API-Key
+collect_google_places_api_key_notice  = API-Schlüssel, der die Berechtigung für die Maps Places API innehält.
+
+collect_google_places_status          = Status
+collect_google_places_status_notice   = Standard-Wert: Veröffentlicht <code>1</code>, oder nicht veröffentlicht <code>0</code>
+
+
+collect_rss = Collect: RSS-Feed
+
+collect_rss_url             = URL
+collect_rss_url_notice      = URL des RSS-Feeds
+
+
+collect_social_media_twitter = Collect: Twitter Beiträge eines Nutzers
+collect_social_media_instagram = Collect: Instagram Beiträge eines Nutzers
+
+collect_social_media_twitter_api_key             = API-Key
+collect_social_media_twitter_api_key_notice      = API-Schlüssel, der die Berechtigung für die Twitter API innehält.
+
+collect_social_media_twitter_api_secret          = Secret
+collect_social_media_twitter_api_secret_notice   = Secret, der die Berechtigung für die Twitter API innehält.
+
+collect_social_media_twitter_user_id          = Nutzer-ID
+collect_social_media_twitter_user_id_notice   = ID (nicht Account-Name) des gewünschten Nutzers.
+
+collect_social_media_twitter_api_secret          = Secret
+collect_social_media_twitter_api_secret_notice   = Secret, der die Berechtigung für die Twitter API innehält.
+
+collect_social_media_twitter_api_bearer_token          = Bearer
+collect_social_media_twitter_api_bearer_token_notice   = Bearet-Token, der die Berechtigung für die Twitter API innehält.
+
+collect_social_media_twitter_status              = Status
+collect_social_media_twitter_status_notice       = Standard-Wert: Veröffentlicht <code>1</code>, oder nicht veröffentlicht <code>0</code>
+
+
+collect_video_vimeo = Collect: Vimeo Playlist
+
+collect_video_vimeo_url             = Playlist-URL
+collect_video_vimeo_url_notice      = URL der Vimeo-Playlist
+
+
+collect_video_youtube = Collect: YouTube Playlist
+
+collect_video_youtube_url             = Playlist-URL
+collect_video_youtube_url_notice      = URL der YouTube-Playlist
