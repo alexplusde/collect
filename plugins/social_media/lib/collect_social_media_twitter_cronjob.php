@@ -20,10 +20,8 @@ class rex_cronjob_collect_social_media_twitter extends rex_cronjob
                 $result = json_decode($response->getBody());
 
                 $author = [];            
-                    dump($result->includes->users[0]);
 
                 foreach($result->data as $data) {
-                    dump($data);
                 $item = collect_social_media::query()->Where('uuid', rex_yform_value_uuid::guidv4($data->id))->findOne();
 
                 if (!$item) {
