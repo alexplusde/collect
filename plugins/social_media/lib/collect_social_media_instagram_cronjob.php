@@ -34,7 +34,7 @@ class rex_cronjob_collect_social_media_instagram extends rex_cronjob
                     $updated++;
                 }
 
-                // Felder: https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields username, timestam
+                // Felder: https://developers.facebook.com/docs/instagram-basic-display-api/reference/media#fields username, timestamp
 
                 $item->setValue('name', $author->name);
                 $item->setValue('raw', $response->getBody());

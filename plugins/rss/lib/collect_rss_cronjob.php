@@ -1,5 +1,8 @@
 <?php
 
+use PicoFeed\Reader\Reader;
+use PicoFeed\Processor;
+
 class rex_cronjob_collect_rss extends rex_cronjob
 {
     public function execute()
@@ -10,44 +13,46 @@ class rex_cronjob_collect_rss extends rex_cronjob
         $updated = 0;
         $untouched = 0;
 
-        $credentials = [
-            'api_key' => $this->getParam('api_key'),
-            'places_id' => $this->getParam('place_id')
-        ];
+        $reader = new Reader();
+        $resource = $reader->download($this->getParam('url'), $this->lastModified, $this->etag);
+        if (!$resource->isModified()) {
+            return;
+        }
+        $parser = $reader->getParser(
+            $resource->getUrl(),
+            $resource->getContent(),
+            $resource->getEncoding()
+        );
+        $feed = $parser->execute();
 
-        try {
-            $socket = rex_socket::factory("maps.googleapis.com", 443, true);
-            $socket->setPath("/maps/api/place/details/json?language=de&place_id=".$credentials['places_id']."&key=".$credentials['api_key']);
-            $response = $socket->doGet();
-            if ($response->isOk()) {
-                $result = json_decode($response->getBody());
-                if ($result->status != "OK") {
-                    $errors[] = $result->error_message;
-                } else {
-                    $place_details = $result->result;
+        /** @var Item $rssItem */
+        foreach ($feed->getItems() as $rssItem) {
 
-                    $item = collect_places::query()->Where('uuid', rex_yform_value_uuid::guidv4($this->getParam('place_id')))->findOne();
+            $item = collect_rss::query()->Where('uuid', rex_yform_value_uuid::guidv4($rssItem->getId()))->findOne();
 
-                    if (!$item) {
-                        $added++;
-                        $item = collect_places::create();
-                    } else {
-                        $updated++;
-                    }
-
-                    $item->setValue('name', $place_details->name);
-
-                    $item->setValue('raw', json_encode($place_details));
-                    $item->setValue('content', strip_tags($place_details->adr_address));
-                    $item->setValue('url', $place_details->url);
-                    $item->setValue('uuid', rex_yform_value_uuid::guidv4($this->getParam('place_id')));
-                    $item->setValue('status', $this->getParam('status'));
-
-                    $item->save();
-                }
+            if (!$item) {
+                $added++;
+                $item = collect_rss::create();
+                $item->setValue('uuid', rex_yform_value_uuid::guidv4($rssItem->getId()));
+                $item->setValue('status', $this->getParam('status'));
+            } else {
+                $updated++;
             }
-        } catch (rex_socket_exception $e) {
-            $errors[] = $e->getMessage();
+            $item->setValue('title', $rssItem->getTitle());
+
+            $item->setValue('raw', json_encode($rssItem));
+            $item->setValue('content', $rssItem->getContent());
+            $item->setValue('url', $rssItem->getUrl());
+
+            $item->setValue('publishdate', $rssItem->getDate());
+            $item->setValue('author', $rssItem->getAuthor());
+            $item->setValue('lang', ($rssItem->getLanguage());
+            if ($rssItem->getEnclosureUrl()) {
+                $item->setValue('media', $rssItem->getEnclosureUrl());
+            } elseif ($rssItem->getTag('media:content', 'url')) {
+                $item->setValue('media', $rssItem->getTag('media:content', 'url')[0]);
+            }
+            $item->save();
         }
 
         $this->setMessage(sprintf(
