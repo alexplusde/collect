@@ -10,41 +10,40 @@ class rex_cronjob_collect_social_media_twitter extends rex_cronjob
         $updated = 0;
         $untouched = 0;
 
-        $credentials = [
-            'api_key' => $this->getParam('api_key'),
-            'places_id' => $this->getParam('place_id')
-        ];
-
         try {
-            $socket = rex_socket::factory("maps.googleapis.com", 443, true);
-            $socket->setPath("/maps/api/place/details/json?language=de&place_id=".$credentials['places_id']."&key=".$credentials['api_key']);
+            $socket = rex_socket::factory("api.twitter.com", 443, true);
+            $socket->setPath("/2/users/".$this->getParam('user_id')."/tweets?expansions=author_id&user.fields=name,username,protected,verified,withheld,location,url,description&max_results=10");
+            $socket->addHeader('Authorization', 'Bearer '.$this->getParam('api_bearer_token'));
             $response = $socket->doGet();
             if ($response->isOk()) {
+
                 $result = json_decode($response->getBody());
-                if ($result->status != "OK") {
-                    $errors[] = $result->error_message;
+
+                $author = [];            
+                    dump($result->includes->users[0]);
+
+                foreach($result->data as $data) {
+                    dump($data);
+                $item = collect_social_media::query()->Where('uuid', rex_yform_value_uuid::guidv4($data->id))->findOne();
+
+                if (!$item) {
+                    $added++;
+                    $item = collect_social_media::create();
                 } else {
-                    $place_details = $result->result;
-
-                    $item = collect_places::query()->Where('uuid', rex_yform_value_uuid::guidv4($this->getParam('place_id')))->findOne();
-
-                    if (!$item) {
-                        $added++;
-                        $item = collect_places::create();
-                    } else {
-                        $updated++;
-                    }
-
-                    $item->setValue('name', $place_details->name);
-
-                    $item->setValue('raw', json_encode($place_details));
-                    $item->setValue('content', strip_tags($place_details->adr_address));
-                    $item->setValue('url', $place_details->url);
-                    $item->setValue('uuid', rex_yform_value_uuid::guidv4($this->getParam('place_id')));
-                    $item->setValue('status', $this->getParam('status'));
-
-                    $item->save();
+                    $updated++;
                 }
+
+                $item->setValue('name', $author->name);
+                $item->setValue('raw', $response->getBody());
+                $item->setValue('content', strip_tags($data->text));
+                $item->setValue('uuid', rex_yform_value_uuid::guidv4($data->id));
+                $item->setValue('status', $this->getParam('status'));
+
+                }
+                    // $item->save();
+            } else {
+                $errors[] = "Fehler beim Abruf. Stimmen die Zugangsdaten und Token?";
+
             }
         } catch (rex_socket_exception $e) {
             $errors[] = $e->getMessage();
@@ -73,6 +72,24 @@ class rex_cronjob_collect_social_media_twitter extends rex_cronjob
             'name' => 'api_key',
             'type' => 'text',
             'notice' => rex_i18n::msg('collect_social_media_twitter_api_key_notice'),
+        ];
+        $fields[] =[
+            'label' => rex_i18n::msg('collect_social_media_twitter_api_secret'),
+            'name' => 'api_secret',
+            'type' => 'text',
+            'notice' => rex_i18n::msg('collect_social_media_twitter_api_secret_notice'),
+        ];
+        $fields[] =[
+            'label' => rex_i18n::msg('collect_social_media_twitter_api_bearer_token'),
+            'name' => 'api_bearer_token',
+            'type' => 'text',
+            'notice' => rex_i18n::msg('collect_social_media_twitter_api_bearer_token_notice'),
+        ];
+        $fields[] =[
+            'label' => rex_i18n::msg('collect_social_media_twitter_user_id'),
+            'name' => 'user_id',
+            'type' => 'text',
+            'notice' => rex_i18n::msg('collect_social_media_twitter_user_id_notice'),
         ];
 
         return $fields;
