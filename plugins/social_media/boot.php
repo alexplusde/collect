@@ -10,5 +10,5 @@ if (rex_addon::get('yform')->isAvailable() && !rex::isSafeMode()) {
 if (rex_addon::get('cronjob')->isAvailable()) {
     rex_cronjob_manager::registerType(rex_cronjob_collect_social_media_twitter::class);
 //    rex_cronjob_manager::registerType(rex_cronjob_collect_social_media_facebook::class);
-//    rex_cronjob_manager::registerType(rex_cronjob_collect_social_media_instagram::class);
+    rex_cronjob_manager::registerType(rex_cronjob_collect_social_media_instagram::class);
 }
