@@ -46,7 +46,7 @@ class rex_cronjob_collect_rss extends rex_cronjob
 
             $item->setValue('publishdate', $rssItem->getDate());
             $item->setValue('author', $rssItem->getAuthor());
-            $item->setValue('lang', ($rssItem->getLanguage());
+            $item->setValue('lang', $rssItem->getLanguage());
             if ($rssItem->getEnclosureUrl()) {
                 $item->setValue('media', $rssItem->getEnclosureUrl());
             } elseif ($rssItem->getTag('media:content', 'url')) {
