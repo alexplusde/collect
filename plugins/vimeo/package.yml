@@ -3,7 +3,7 @@ version: '0.0.1-dev'
 author: 'Alexander Walther' 
 supportpage: https://github.com/alexplusde/collect
 pages:
-    collect/video:
-        title: translate:collect_title_video
+    collect/vimeo:
+        title: translate:collect_title_vimeo
         icon: rex-icon fa-play
         perm: collect[]
