@@ -7,7 +7,6 @@ class rex_cronjob_collect_rss extends rex_cronjob
 {
     public function execute()
     {
-
         $errors = [];
         $added = 0;
         $updated = 0;
@@ -27,7 +26,6 @@ class rex_cronjob_collect_rss extends rex_cronjob
 
         /** @var Item $rssItem */
         foreach ($feed->getItems() as $rssItem) {
-
             $item = collect_rss::query()->Where('uuid', rex_yform_value_uuid::guidv4($rssItem->getId()))->findOne();
 
             if (!$item) {
