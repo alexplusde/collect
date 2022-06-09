@@ -1,5 +1,5 @@
 package: collect
-version: "0.0.5-dev"
+version: "0.0.6-dev"
 author: "Alexander Walther"
 supportpage: https://github.com/alexplusde/collect
 
