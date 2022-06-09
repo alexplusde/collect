@@ -1,0 +1,9 @@
+package: collect/vimeo
+version: '0.0.1-dev'
+author: 'Alexander Walther' 
+supportpage: https://github.com/alexplusde/collect
+pages:
+    collect/vimeo:
+        title: translate:collect_title_vimeo
+        icon: rex-icon fa-vimeo
+        perm: collect[]
