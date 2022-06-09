@@ -1,4 +1,5 @@
 collect_vimeo_title = Vimeo
+collect_title_vimeo = Vimeo
 collect_video_vimeo_access_token = Token
 collect_video_vimeo_client_id = Client-ID
 collect_video_vimeo_client_secret = Client-Secret
