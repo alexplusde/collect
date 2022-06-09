@@ -1,11 +1,11 @@
 <?php
 
-echo rex_view::title(rex_i18n::msg('collect_video_title'));
+echo rex_view::title(rex_i18n::msg('collect_vimeo_title'));
 
 $yform = $this->getProperty('yform', []);
 $yform = $yform[\rex_be_controller::getCurrentPage()] ?? [];
 
-$table_name = 'rex_collect_video';
+$table_name = 'rex_collect_vimeo';
 
 \rex_extension::register(
     'YFORM_MANAGER_DATA_PAGE_HEADER',
