@@ -1,6 +1,5 @@
 <?php
 
-echo rex_view::title(rex_i18n::msg('collect_social_media_title'));
 
 $yform = $this->getProperty('yform', []);
 $yform = $yform[\rex_be_controller::getCurrentPage()] ?? [];

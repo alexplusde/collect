@@ -15,11 +15,14 @@ page:
     icon: rex-icon fa-rss
 
 pages:
-    collect/docs:
-        title: translate:collect_title_docs
-        subPath: README.md
-        icon: rex-icon fa-info-circle
-        itemclass: pull-right
+    collect:
+        title: translate:collect_title
+        subpages:
+            docs:
+                title: translate:collect_title_docs
+                subPath: README.md
+                icon: rex-icon fa-info-circle
+                itemclass: pull-right
 
 system_plugins:
     - rss
