@@ -1,0 +1,8 @@
+
+.DS_Store
+vendor/autoload.php
+vendor/composer/*
+plugins/vimeo/vendor/composer/*
+plugins/vimeo/vendor/autoload.php
+
+

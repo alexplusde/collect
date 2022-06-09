@@ -16,6 +16,8 @@ collect_publishdate_label   = Original vom
 collect_createdate_label    = Abruf am
 collect_updatedate_label    = Aktualisiert am
 collect_updateuser_label    = Verändert von
+collect_poster_label        = Poster
+collect_update_user_label   = Benutzer
 
 online  = Online
 offline = Offline
@@ -88,12 +90,6 @@ collect_social_media_twitter_api_bearer_token_notice   = Bearet-Token, der die B
 
 collect_social_media_twitter_status              = Status
 collect_social_media_twitter_status_notice       = Standard-Wert: Veröffentlicht <code>1</code>, oder nicht veröffentlicht <code>0</code>
-
-
-collect_video_vimeo = Collect: Vimeo Playlist
-
-collect_video_vimeo_url             = Playlist-URL
-collect_video_vimeo_url_notice      = URL der Vimeo-Playlist
 
 
 collect_video_youtube = Collect: YouTube Playlist
