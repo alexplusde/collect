@@ -1,5 +1,5 @@
 collect_title   =   Collect
-
+collect = Collect
 // YForm Tabellenfelder Labels und Notices
 
 collect_key_label           = Schlüssel
