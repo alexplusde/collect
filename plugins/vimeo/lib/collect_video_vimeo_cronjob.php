@@ -34,6 +34,9 @@ class rex_cronjob_collect_video_vimeo extends rex_cronjob
                     $untouched++;
                     continue; 
                 }
+		if ($video['privacy']['view']==='anybody') {}
+		else { continue; }    
+		    
                 if (!$item) {
                 $added++;
                 $item = collect_vimeo::create();
